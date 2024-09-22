@@ -1,4 +1,4 @@
-package com.example.account.model;
+package com.example.account.entities;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
