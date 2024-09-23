@@ -1,10 +1,7 @@
 package com.example.account.entities;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,6 +12,8 @@ import java.util.Collection;
 import java.util.List;
 
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
