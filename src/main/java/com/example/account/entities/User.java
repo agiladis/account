@@ -37,8 +37,8 @@ public class User implements UserDetails {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "VARCHAR(255) DEFAULT 'USER'")
-    private Role role = Role.USER;
+    @Column(nullable = false)
+    private Role role;
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
@@ -51,6 +51,13 @@ public class User implements UserDetails {
     @Setter(AccessLevel.NONE)
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.role == null) {
+            this.role = Role.USER;
+        }
+    }
 
     public void softDelete() {
         this.deletedAt = LocalDateTime.now();
